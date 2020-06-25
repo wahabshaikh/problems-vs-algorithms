@@ -15,4 +15,4 @@ Since, there are no duplicates, I'll find the answer in only one of the left and
 
 Since, the search space is broken into half everytime, the time complexity is `O(logn)`.
 
-The `input_list` contains `n` elements. Hence, space complexity is `O(n)`.
+The `input_list` contains `n` elements. The recursive stack increases logarithmically. Hence, overall space complexity is still `O(n)`.

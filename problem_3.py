@@ -1,4 +1,40 @@
-from heapq import heapify, heappush, heappop
+def merge_sort(input_list):
+    n = len(input_list)
+
+    if n <= 1:
+        return input_list
+
+    mid = n // 2
+
+    left = merge_sort(input_list[:mid])
+    right = merge_sort(input_list[mid:])
+
+    sorted_list = []
+    n_l, n_r = len(left), len(right)    
+    l, r = 0, 0
+
+    while len(sorted_list) != n_l + n_r:
+        if left[l] < right[r]:
+            sorted_list.append(left[l])
+
+            if l == n_l - 1:
+                sorted_list.extend(right[r:])
+                r += n_r - r
+            else:
+                l += 1
+
+        else:
+            sorted_list.append(right[r])
+
+            if r == n_r - 1:
+                sorted_list.extend(left[l:])
+                l += n_l - l
+            else:
+                r += 1
+            
+    return sorted_list
+
+
 
 def rearrange_digits(input_list):
     """
@@ -11,27 +47,19 @@ def rearrange_digits(input_list):
     """
     if len(input_list) <= 1:
         return None, None
+        
+    sorted_list = merge_sort(input_list)
 
-    min_heap = []
-    heapify(min_heap)
-
-    for val in input_list: # O(n)
-        heappush(min_heap, val) # O(logn)
-
-    sorted_list = []
-    while min_heap: # O(n)
-        sorted_list.append(heappop(min_heap)) # O(logn)
-
-    max = ''
+    maximum = ''
     for digit in sorted_list[::-2]: # O(n)
-        max += str(digit)
+        maximum += str(digit)
 
     # Odd-indexed digits for min
-    min = ''
+    minimum = ''
     for digit in sorted_list[-2::-2]:
-        min += str(digit)
+        minimum += str(digit)
 
-    return int(max), int(min)
+    return int(maximum), int(minimum)
 
 
 def test_function(test_case):

@@ -11,17 +11,17 @@ def get_min_max(ints):
         return None, None
 
 
-    min = math.inf
-    max = -math.inf
+    minimum = math.inf
+    maximum = -math.inf
 
-    for int in ints:
-        if int < min:
-            min = int
+    for val in vals:
+        if val < minimum:
+            minimum = val
 
-        if int > max:
-            max = int
+        if val > maximum:
+            maximum = val
 
-    return min, max
+    return minimum, maximum
 
 
 ''' Test case 1: Array of random numbers '''

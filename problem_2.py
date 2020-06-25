@@ -46,11 +46,13 @@ test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[], 2])
 # Output:
 # Pass 0
 # Pass 5
 # Pass 2
 # Pass 3
+# Pass -1
 # Pass -1
 
 

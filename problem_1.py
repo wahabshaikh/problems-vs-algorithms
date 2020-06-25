@@ -8,7 +8,24 @@ def sqrt(number):
       int: Floored Square Root
    """
    try:
-      return int(number ** 0.5)
+
+      if number == 0 or number == 1:
+         return number
+
+      start = 1
+      end = number
+      while (start <= end):
+         mid = (start + end) // 2
+
+         if mid ** 2 < number:
+            res = mid
+            start = mid + 1
+         elif mid ** 2 > number:
+            end = mid - 1
+         else:
+            return mid
+      
+      return res
    except:
       return "Negative numbers don't have real square roots"
 
